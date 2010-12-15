@@ -23,7 +23,7 @@ class GeneticAlgorithm(object):
         size = len(fits)
         nexts = []
         while len(nexts) < size:
-            parents = parents_generator.next()
+            parents = next(parents_generator)
             cross = random.random() < self.genetics.probability_crossover()
             children = self.genetics.crossover(parents) if cross else parents
             for ch in children:
@@ -64,8 +64,8 @@ class GeneticFunctions(object):
         """
         gen = iter(sorted(fits_populations))
         while True:
-            f1, ch1 = gen.next()
-            f2, ch2 = gen.next()
+            f1, ch1 = next(gen)
+            f2, ch2 = next(gen)
             yield (ch1, ch2)
             pass
         return
@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
         def fitness(self, chromo):
             # larger is better, matched == 0
-            return sum(-abs(c - t) for c, t in zip(chromo, self.target))
+            return -sum(abs(c - t) for c, t in zip(chromo, self.target))
 
         def check_stop(self, fits_populations):
             self.counter += 1
