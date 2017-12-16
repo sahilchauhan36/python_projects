@@ -1,7 +1,4 @@
-"""Genetic Algorithmn Implementation
-see:
-http://www.obitko.com/tutorials/genetic-algorithms/ga-basic-description.php
-"""
+
 import random
 
 class GeneticAlgorithm(object):
@@ -169,5 +166,5 @@ if __name__ == "__main__":
             return [random.randint(1, 255) for i in range(len(self.target))]
         pass
 
-    GeneticAlgorithm(GuessText("Hello World!")).run()
+    GeneticAlgorithm(GuessText("Model Run Successfully")).run()
     pass
