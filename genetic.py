@@ -1,5 +1,5 @@
 
-import random
+import random #randomv variable gen library
 
 class GeneticAlgorithm(object):
     def __init__(self, genetics):
